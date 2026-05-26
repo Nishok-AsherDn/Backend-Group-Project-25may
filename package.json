@@ -20,5 +20,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishok-AsherDn/Backend-Group-Project-25may.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nishok-AsherDn/Backend-Group-Project-25may/issues"
+  },
+  "homepage": "https://github.com/Nishok-AsherDn/Backend-Group-Project-25may#readme"
 }
