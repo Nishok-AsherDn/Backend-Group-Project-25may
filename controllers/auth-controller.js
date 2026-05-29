@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-const User = require("../models/user");
+const user = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -18,7 +18,7 @@ const register = asyncHandler(async (req, res) => {
         });
     }
 
-    const oldUser = await User.findOne({ userEmail });
+    const oldUser = await user.findOne({ userEmail });
 
     if (oldUser) {
         return res.status(400).json({
@@ -28,7 +28,7 @@ const register = asyncHandler(async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(userPassword, 10);
 
-    const newUser = await User.create({
+    const newUser = await user.create({
         userName,
         userEmail,
         userPassword: hashedPassword
@@ -59,7 +59,7 @@ const login = asyncHandler(async (req, res) => {
         });
     }
 
-    const oldUser = await User.findOne({ userEmail });
+    const oldUser = await user.findOne({ userEmail });
 
     if (!oldUser) {
         return res.status(401).json({
