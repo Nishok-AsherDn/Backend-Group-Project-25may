@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv").config();
 const taskRoutes = require("./routes/task-routes");
+const connectDB = require("./config/db");
 
+connectDB();
 
 const port = process.env.PORT;
 

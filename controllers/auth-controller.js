@@ -5,13 +5,13 @@ const bcrypt = require("bcrypt");
 
 const register = asyncHandler(async(req,res)=>{
     const {
-        UserName,
-        UserEmail,
-        UserPassword
+        userName,
+        userEmail,
+        userPassword
     } = req.body;
 
-    if(!UserName||!UserEmail||!UserPassword){
-        req.status(400).json({
+    if(!userName||!userEmail||!userPassword){
+        return res.status(400).json({
             "message": "Fill all the required input"
         });
     }
@@ -69,6 +69,7 @@ const login = asyncHandler(async (req, res) => {
         const accessToken = jwt.sign(
             {
                 user: {
+                    id: olduser._id,
                     name: olduser.userName,
                     email: olduser.userEmail,
                    
