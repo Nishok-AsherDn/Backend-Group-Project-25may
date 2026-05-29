@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const {
     createTask,
-    getTasks
+    getTasks,
+    getTaskById,
+    getTaskStats,
+    updateTask,
+    deleteTask
 } = require("../controllers/task-controller");
 const validateToken = require("../middlewares/auth-middleware");
 
